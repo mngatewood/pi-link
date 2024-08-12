@@ -5,7 +5,7 @@
     import Lobby from '$lib/components/Lobby.svelte';
     import Game from '$lib/components/Game.svelte';
 
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase('https://backend-empty-violet-3106.fly.dev/');
 
     export let data;
     let game = data.game;
