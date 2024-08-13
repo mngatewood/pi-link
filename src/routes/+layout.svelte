@@ -6,8 +6,10 @@
 <svelte:head>
     <style>
         body{
-            margin:0;
+            margin: 0;
             overscroll-behavior-y: none;
+            background-color: #f3f4fb;
+            color: theme("colors.blue.1");
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,11 +36,6 @@
 
 <style lang="postcss">
     
-    html {
-        background-color: #f3f4fb;
-        color: theme("colors.blue.1");
-    }
-
     main {
         display: block;
     }
@@ -201,7 +198,7 @@
         font-weight: 500;
         background-color: theme("colors.brown.1");
         color: theme("colors.gray.50");
-        box-shadow: 2px 2px 5px 0 theme(colors.brown.1);
+        box-shadow: 2px 2px 5px 0 theme("colors.brown.1");
     }
 
     :global(.href-inline) {
@@ -218,7 +215,7 @@
     :global(.button-submit:disabled) {
         background-color: theme("colors.gray.400");
         color: theme("colors.gray.50");
-        box-shadow: 2px 2px 5px 0 theme(colors.gray.800);
+        box-shadow: 2px 2px 5px 0 theme("colors.gray.800");
         border: 2px solid theme("colors.gray.500");
     }
 
