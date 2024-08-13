@@ -25,18 +25,11 @@
         display: flex;
         justify-content: space-between;
         border-bottom: solid theme("colors.orange.1");
+        background-color: solid theme("colors.gray.50");
     }
 
     .title-container {
         background-color: theme("colors.orange.1")
-    }
-
-    .title {
-        font-family: 'Titillium Web', sans-serif;
-        font-size: 4rem;
-        font-weight: 900;
-        margin: 0 1rem;
-        color: theme("colors.white.1");
     }
 
     .icons-container {

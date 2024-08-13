@@ -36,7 +36,7 @@
             </div>
             <div class="form-item">
                 <div class="mt-8">
-                    <button type="submit" id="submit-clue" class="button button-submit">Finish Round</button>
+                    <button type="submit" id="submit-clue" class="button href-button button-fit-content button-submit">Finish Round</button>
                 </div>
             </div>
         </form>

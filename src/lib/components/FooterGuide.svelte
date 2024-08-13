@@ -39,7 +39,7 @@
                 {:else}
                     [+]
                 {/if}
-                &nbsp; Help
+                &nbsp; <span class="underline">Help</span>
             </span>
         </button>
         <div class="tab tab-right"></div>
@@ -59,6 +59,7 @@
 
     #footer-guide-container {
         position: absolute;
+        left: 5%;
         width: 90%;
         background-color: transparent;
         transition: top 1s; 
@@ -84,11 +85,15 @@
         width: 50%;
         min-height: unset;
         max-height: unset;
+        max-width: 150px;
+        margin: 0 auto;
+        padding-top: 2px;
         font-size: 1rem;
         background-color: rgba(187, 101, 60, 0.9);
         border-style: solid none none none;
         border-radius: 2rem 2rem 0 0;
         box-shadow: 5px 3px 10px theme('colors.orange.1');
+        -webkit-tap-highlight-color: transparent;
     }
     
     .tab-right {

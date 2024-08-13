@@ -75,20 +75,22 @@
         </div>
     {/if}
     {#if showClueContainer}
-        <div class="round-header-card">
-            {#if playerRole == "Conspirator"}
-                <div class="clue"><strong>Clue:</strong> {clue}</div>
-            {:else if !hideClue}
-                <div class="clue"><strong>Clue:</strong> {clue}</div>
-                <button class="btn-visibility" type="button" on:click={() => hideClue = true}>
-                    <img class="mag-glass" src={ NotVisibleIcon } alt="Magnifying Glass Icon" />
-                </button>
-            {:else}
-                <div class="clue"><strong>Clue:</strong> **********</div>
-                <button class="btn-visibility" type="button" on:click={() => hideClue = false}>
-                    <img class="mag-glass" src={ VisibleIcon } alt="Magnifying Glass Icon" />
-                </button>
-            {/if}
+        <div class="round-header-container">
+            <div class="round-header-card">
+                {#if playerRole == "Conspirator"}
+                    <div class="clue"><strong>Clue:</strong> {clue}</div>
+                {:else if !hideClue}
+                    <div class="clue"><strong>Clue:</strong> {clue}</div>
+                    <button class="btn-visibility" type="button" on:click={() => hideClue = true}>
+                        <img class="mag-glass" src={ NotVisibleIcon } alt="Magnifying Glass Icon" />
+                    </button>
+                {:else}
+                    <div class="clue"><strong>Clue:</strong> **********</div>
+                    <button class="btn-visibility" type="button" on:click={() => hideClue = false}>
+                        <img class="mag-glass" src={ VisibleIcon } alt="Magnifying Glass Icon" />
+                    </button>
+                {/if}
+            </div>
         </div>
     {/if}
 {/if}
@@ -96,7 +98,18 @@
 <style lang="postcss">
 
     .btn-visibility {
+        min-height: unset;
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
         background-color: theme("colors.white.1");
+    }
+
+    .mag-glass {
+        width: 36px;
+        height: 36px;
+        margin: 0;
+        padding: 0;
     }
 
 </style>

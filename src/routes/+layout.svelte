@@ -1,7 +1,6 @@
 <script>
     import "../app.css";
     import Header from '$lib/components/Header.svelte';
-    // import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <svelte:head>
@@ -21,20 +20,27 @@
         <Header />
     </header>
 
-    <main class="flex-grow overflow-scroll mb-auto px-4 pt-8 pb-10">
+    <main class="flex-grow overflow-scroll m-auto px-4 pt-8 pb-10">
         <slot />
     </main>
-
-    <!-- <footer class="sticky bottom-0 bg-orange-1">
-        <Footer />
-    </footer> -->
+    <div id="landscape-warning">
+        <h1>Landscape Orientation Detected</h1>
+        <div>
+            <h4>This application is best experienced in portrait orientation when using smaller devices.</h4>
+            <h4>Please reorient your device to portrait mode to continue.</h4>
+        </div>
+    </div>
 </div>
 
 <style lang="postcss">
     
-    :global(html) {
+    html {
         background-color: #f3f4fb;
-        color: theme("colors.blue.1")
+        color: theme("colors.blue.1");
+    }
+
+    main {
+        display: block;
     }
 
     :global(h1) {
@@ -56,7 +62,7 @@
         font-size: 1.5rem;
         font-weight: 700;
         text-align: center;
-        color: theme("colors.brown.1")
+        color: theme("colors.brown.1");
     }
 
     :global(h4) {
@@ -80,94 +86,56 @@
     :global(input) {
         display: block;
         width: 100%;
-        height: 3rem;
-        margin-bottom: 1rem;
         text-align: center;
         font-family: "Caveat", cursive;
         font-size: 2rem;
         color: theme("colors.blue.1");
         background-color: theme("colors.yellow.1");
     }
-
+    
     :global(button) {
         width: 100%;
         max-height: 25%;
         min-height: 4rem;
         border-radius: 10px;
+        padding: 0.5rem 1rem;
         font-size: 1.5rem;
         font-weight: 500;
         background-color: theme("colors.green.1");
         color: theme("colors.gray.50");
-        box-shadow: 2px 2px 5px 0 theme(colors.blue.800);
+        box-shadow: 2px 2px 5px 0 theme("colors.blue.1");
     }
 
-    :global(.href-button) {
-        display: flex;
+    #landscape-warning {
+        display: none;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-        width: 100%;
-        max-height: 25%;
-        min-height: 4rem;
-        border-radius: 10px;
-        font-size: 1.5rem;
-        font-weight: 500;
-        background-color: theme("colors.brown.1");
-        color: theme("colors.gray.50");
-        box-shadow: 2px 2px 5px 0 theme(colors.brown.1);
+        width: 550px;
+        height: calc(100vh - 97.5px);
+        margin: 0 auto;
     }
 
-    :global(.href-inline) {
-        text-decoration: underline;
-        color: theme("colors.blue.1");
+    #landscape-warning > h1, #landscape-warning > div > h4 {
+        margin: 2rem auto;
     }
 
-    :global(.button-submit) {
-        background-color: theme("colors.brown.1");
-        color: theme("colors.gray.50");
-        padding: 0.75rem;
+    #landscape-warning > div {
+        width: 400px;
+        height: 150px;
+        margin: 1rem auto;
     }
 
-    :global(.button-submit:disabled) {
-        background-color: theme("colors.gray.400");
-        color: theme("colors.gray.50");
-        box-shadow: 2px 2px 5px 0 theme(colors.gray.800);
+    :global(.title) {
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 4rem;
+        font-weight: 900;
+        margin: 0 1rem;
+        color: theme("colors.white.1");
     }
 
-    :global(.button-cancel) {
-        background-color: theme("colors.gray.50");
-        color: theme("colors.orange.1");
-        border: 2px solid theme("colors.orange.1");
-    }
 
-    :global(.inline-button) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 1rem 1rem 0 1rem;
-    }
-
-    :global(.btn-visibility) {
-        min-height: unset;
-        width: 3rem;
-        height: 3rem;
-        margin: 0;
-        margin: 0;
-        border: none;
-        box-shadow: unset;
-        background-color: theme("colors.yellow.1");
-        border-radius: 0;
-    }
-
-    :global(.btn-visibility > img) {
-        padding: 6px;
-    }
-
-    :global(.visibility-container) {
-        display: flex;
-        flex-direction: row;
-    }
+/* *** CONTAINERS *** */
 
     :global(.container) {
         display: flex;
@@ -179,13 +147,8 @@
         margin: 0;
     }
 
-    :global(.buttons-container > .href-button) {
-        width: auto;
-        margin: 4rem 1rem;
-    }
-
     :global(.round-header-container) {
-        margin: 1rem 0;
+        margin: 1rem auto;
     }
 
     :global(.round-header-card) {
@@ -210,17 +173,113 @@
         box-shadow: 2px 2px 5px theme('colors.blue.1');
     }
 
-    :global(.round-header-role, .clue) {
-        margin-left: 1rem;
-        color: theme('colors.green.1');
-    }
-
     :global(.round-container) {
         margin: 0 0 1rem 0;
     }
 
     :global(.stage-container) {
         margin-top: 3rem;
+    }
+
+/* *** FORM CLASSES *** */
+
+    :global(.form-item) {        
+        margin-bottom: 1rem;
+    }
+
+    :global(.href-button) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-height: 25%;
+        min-height: 4rem;
+        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        background-color: theme("colors.brown.1");
+        color: theme("colors.gray.50");
+        box-shadow: 2px 2px 5px 0 theme(colors.brown.1);
+    }
+
+    :global(.href-inline) {
+        text-decoration: underline;
+        color: theme("colors.blue.1");
+    }
+
+    :global(.button-submit) {
+        background-color: theme("colors.brown.1");
+        color: theme("colors.gray.50");
+        border: 2px solid theme("colors.brown.1");
+    }
+
+    :global(.button-submit:disabled) {
+        background-color: theme("colors.gray.400");
+        color: theme("colors.gray.50");
+        box-shadow: 2px 2px 5px 0 theme(colors.gray.800);
+        border: 2px solid theme("colors.gray.500");
+    }
+
+    :global(.button-cancel) {
+        background-color: theme("colors.gray.50");
+        color: theme("colors.orange.1");
+        border: 2px solid theme("colors.orange.1");
+    }
+
+    :global(.inline-button) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem;
+    }
+
+    :global(.btn-visibility) {
+        min-height: unset;
+        width: 3rem;
+        height: 3rem;
+        margin: 0;
+        border: none;
+        box-shadow: unset;
+        background-color: theme("colors.yellow.1");
+        border-radius: 0;
+        padding: 0;
+    }
+
+    :global(.btn-visibility > img) {
+        padding: 6px;
+    }
+
+    :global(.visibility-container) {
+        display: flex;
+        flex-direction: row;
+        height: 3rem;
+        background-color: theme("colors.yellow.1");
+        margin-bottom: 1rem;
+    }
+
+    :global(.buttons-container > .href-button) {
+        width: auto;
+        margin: 4rem 1rem;
+    }
+
+/* *** CUSTOM INPUTS *** */
+
+    :global(.visibility-container > input:focus) {
+        outline: none;
+    }
+
+    :global(input:focus),  :global(.visibility-container:focus-within) {
+        outline: 2px solid theme("colors.orange.1");
+    }
+    
+/* *** MISCELLANEOUS *** */
+
+    :global(.round-header-role, .clue) {
+        margin-left: 1rem;
+        color: theme('colors.green.1');
     }
 
     :global(.notepad) {
@@ -242,5 +301,81 @@
         height: 1rem;
         color: theme("colors.red.600")
     }
+
+    :global(.mag-glass) {
+        width: 50px;
+        height: 50px;
+    }
+
+/* smaller devices in landscape orientation */
+@media screen and (orientation: landscape) and (max-height: 479px) {
+    main {
+        display: none;
+    }
+
+    div#landscape-warning {
+        display: block;
+    }
+}
+
+/* very small devices */
+@media only screen and (max-width: 359px) {
+
+    main {
+        width: 100vw;
+    }
+    :global(.title) {
+        font-size: 2rem;
+    }
+
+    :global(.icons-container) {
+        padding-top: 0.5rem;
+    }
+
+    :global(.header-img) {
+        width: 24px;
+        height: 24px;
+    }
+
+    :global(.round-header-card) {
+        line-height: 2.25rem;
+        font-size: large;
+    }
+}
+
+@media only screen and (min-width: 360px) {
+
+    main {
+        width: 100vw;
+    }
+}
+
+/* small devices and most phones in portrait orientation */
+@media only screen and (min-width: 480px) {
+  main {
+    /* don't let the container take up full width */
+    width: 460px;
+  }
+
+  :global(button.button-fit-content) {
+    /* don't let the buttons get too wide */
+    width: fit-content;
+    min-width: 430px;
+    margin: auto;
+  }
+
+    :global(.round-header-container) {
+        width: 430px;
+    }
+
+}
+
+/* most tablets and larger */
+@media only screen and (min-width: 768px) {
+  main {
+    /* don't let the container take up full width */
+    width: 720px;
+  }
+}
 
 </style>

@@ -4,7 +4,9 @@ export const actions = {
     register: async ({ request, locals }) => {
 
         const formData = Object.fromEntries(await request.formData());
-        formData.username = formData.email.split('@')[0];
+        // get username from email address minus '@domain.com' and add four random characters to make semi-unique
+        // not currently used, but required by pocketbase auth
+        formData.username = formData.email.split('@')[0] + Math.random().toString(36).slice(2, 6);
         
         let createResult = false;
         
