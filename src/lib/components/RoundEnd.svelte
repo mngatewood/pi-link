@@ -78,8 +78,9 @@
         {/each}
     </div>
     {#if playAnotherRound}
-        <h3 class="my-8">The round has ended.</h3>
+        <h3 class="mt-8">The round has ended.</h3>
         {#if isHost}
+            <h4>Click the button below to advance to the next round.</h4>
             <form method="post" action="?/finishRound" class="w-full" use:enhance>
                 <div class="form-item">
                     <input type="hidden" name="gameId" value={data.game.id} />
@@ -90,13 +91,15 @@
                 </div>
                 <div class="form-item">
                     <div class="flex justify-between w-full">
-                        <button type="submit" id="submit-clue" class="button button-submit">Finish Round</button>
+                        <button type="submit" id="submit-clue" class="button href-button button-fit-content button-submit">Finish Round</button>
                     </div>
                 </div>
             </form>
+        {:else}
+            <h4>Please wait for the host to advance the game to the next round.</h4>
         {/if}
     {:else}
-        <h3 class="my-8">The game has ended and <span class="whitespace-nowrap font-bold">the winner is {winner}</span>.</h3>
+        <h3 class="my-8">The game has ended and <span class="whitespace-nowrap font-bold">the winner is {winner}</span></h3>
         {#if isHost}
             <form method="post" action="?/endGame" class="w-full" use:enhance>
                 <div class="form-item">

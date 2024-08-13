@@ -8,7 +8,7 @@
     const isInformant = data.game.playerRoles[data.user.id] == "Informant";
     const playerRole = data.user.playerRole;
     let clue = data.game.clue;
-    let displayContinue = "block";
+    let displayContinue = "flex";
     let displayConfirm = "none";
 </script>
 
@@ -19,12 +19,12 @@
             <div class="form-item">
                 <input type="hidden" name="gameId" value={data.game.id} />
                 <input type="hidden" name="isInformant" value={isInformant} />
-                <button type="button" style="display:{displayContinue}" id="continue" class="href-button button-submit" on:click={() => { displayConfirm = "block", displayContinue = "none" }}>All players have defended their choice of cards.</button>
-                <button type="submit" style="display:{displayConfirm}" id="confirm" class="href-button button-submit" on:click={() => { displayConfirm = "none", displayContinue = "block" }}>Proceed to the next stage.</button>
+                <button type="button" style="display:{displayContinue}" id="continue" class="href-button button-fit-content button-submit" on:click={() => { displayConfirm = "flex", displayContinue = "none" }}>All players have defended their cards.</button>
+                <button type="submit" style="display:{displayConfirm}" id="confirm" class="href-button button-fit-content button-submit" on:click={() => { displayConfirm = "none", displayContinue = "flex" }}>Proceed to the next stage.</button>
             </div>
         </form>
     {:else}
-        <h3>Waiting for all players to play defend their card choice.</h3>
+        <h3>Waiting for all players to defend their card choice.</h3>
     {/if}
 </div>
 <FooterGuide {data} />

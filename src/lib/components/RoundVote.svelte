@@ -52,13 +52,18 @@
             </form>
         </div>
     {/if}
-    {#if isInformant}
-        <h3 class="mb-8">Once all players have voted, advance to the next stage by clicking the button below.</h3>
+    {#if isInformant && disableSubmit}
+        <h3>Awaiting Votes</h3>
+        <h4>Once all players have voted, advance to the next stage by clicking the button below.</h4>
+    {:else if isInformant}
+        <h3>Voting Completed</h3>
+        <h4>Click the button below to continue.</h4>
     {:else if voted}
-        <h3>Your vote has been submitted.  Once all players have voted, the Informant will advance the game to review the results.</h3>
+        <h3>Your vote has been submitted.</h3>
+        <h4>Once all players have voted, the Informant will advance the game to review the results.</h4>
     {/if}
     {#if isInformant}
-        <form method="post" action="?/finishVoting" class="w-full" use:enhance>
+        <form method="post" action="?/finishVoting" class="w-full mt-8" use:enhance>
             <div class="form-item">
                 <input type="hidden" name="gameId" value={data.game.id} />
                 <input type="hidden" name="isInformant" value={isInformant} />
@@ -66,7 +71,7 @@
                 <input type="hidden" name="results" value={results} />
                 <input type="hidden" name="votes" value={votes} />
                 <input type="hidden" name="round" value={data.game.round} />
-                <button type="submit" disabled={disableSubmit} id="continue-results" class="href-button button-submit">Proceed to next stage.</button>
+                <button type="submit" disabled={disableSubmit} id="continue-results" class="href-button button-fit-content button-submit">Proceed to next stage.</button>
             </div>
         </form>
     {/if}
