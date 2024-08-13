@@ -8,7 +8,7 @@
     export let data;
 </script>
 
-<div class="">
+<div>
     {#if (data.game.stage == "inform detectives")}
         <RoundInform {data} />
     {:else if (data.game.stage == "submit evidence")}

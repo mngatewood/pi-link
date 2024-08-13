@@ -82,7 +82,7 @@
                 <form action="?/start" method="post" class="host-button" use:enhance>
                     <input type="hidden" name="gameId" value={data.game.id} />
                     <input type="hidden" name="userId" value={data.user.id} />
-                    <button disabled={disableStart} class="button button-submit mb-4" type="submit">Start Game</button>
+                    <button disabled={disableStart} class="button button-submit" type="submit">Start Game</button>
                 </form>
             </div>
         {:else}

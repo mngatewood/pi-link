@@ -15,7 +15,7 @@
 <div class="stage-container">
     {#if isInformant}
         <form  method="post" action="?/submitClue" use:enhance>
-            <div class="form-item">
+            <div class="form-item mx-4">
                 <input type="hidden" name="gameId" value={data.game.id} />
                 <input type="hidden" name="isInformant" value={isInformant} />
                 <input bind:value={clueWord} id="clue" type="text" name="clue" class="h-20 text-5xl" placeholder="Enter Clue" required />
