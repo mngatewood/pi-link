@@ -31,33 +31,33 @@
     <div class="w-full">
         <form  method="post" action="?/register" class="mb-8">
             <div class="form-item">
-                <label for="name">First Name<sup><small>*</small></sup></label>
+                <label for="firstname">First Name<sup><small>*</small></sup></label>
                 <br>
-                <input value={form?.firstname?? ''} id="firstname" type="text" name="firstname" required />
+                <input value={form?.firstname?? ''} id="firstname" data-testid="register-firstname" type="text" name="firstname" required />
             </div>
         
             <div class="form-item">
-                <label for="name">Last Name<sup><small>*</small></sup></label>
+                <label for="lastname">Last Name<sup><small>*</small></sup></label>
                 <br>
-                <input value={form?.lastname?? ''} id="lastname" type="text" name="lastname" required />
+                <input value={form?.lastname?? ''} id="lastname" data-testid="register-lastname" type="text" name="lastname" required />
             </div>
         
             <div class="form-item">
                 <label for="email">Email Address<sup><small>*</small></sup></label>
                 <br>
-                <input bind:this={email} on:keydown={clearMessages("email")} class:fieldError={form?.error} value={form?.email?? ''} id="email" type="email" name="email" required />
+                <input bind:this={email} on:keydown={clearMessages("email")} class:fieldError={form?.error} value={form?.email?? ''} id="email" data-testid="register-email"type="email" name="email" required />
             </div>
         
             <div class="form-item">
                 <label for="password">Password<sup><small>*</small></sup> <em>(Minimum 8 characters)</em></label>
                 <div class="visibility-container">
                     {#if !showPassword}
-                        <input bind:value={password} on:keydown={clearMessages("password")} class:fieldError={form?.weakPassword || passMatchError || passLengthError} type='password' id="password" name="password" required />
+                        <input bind:value={password} on:keydown={clearMessages("password")} class:fieldError={form?.weakPassword || passMatchError || passLengthError} type='password' id="password" data-testid="register-password" name="password" required />
                         <button class="btn-visibility" type="button" on:click={() => showPassword = true} tabindex="-1">
                             <img class="mag-glass" src={ VisibleIcon } alt="Magnifying Glass Icon" />
                         </button>
                     {:else}
-                        <input bind:value={password} on:keydown={clearMessages("password")} class:fieldError={form?.weakPassword || passMatchError || passLengthError} type='text' id="password" name="password" required />
+                        <input bind:value={password} on:keydown={clearMessages("password")} class:fieldError={form?.weakPassword || passMatchError || passLengthError} type='text' id="password" data-testid="register-confirm-pw" name="password" required />
                         <button class="btn-visibility" type="button" on:click={() => showPassword = false} tabindex="-1">
                             <img class="mag-glass" src={ NotVisibleIcon } alt="Strikethrough Magnifying Glass Icon" />
                         </button>
