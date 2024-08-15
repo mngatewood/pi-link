@@ -1,8 +1,6 @@
 <script>
     import { page } from '$app/stores'
 
-    export let data;
-
     const removed = $page.url.searchParams.get('removed');
     const ended = $page.url.searchParams.get('ended');
     const host = $page.url.searchParams.get('host');
