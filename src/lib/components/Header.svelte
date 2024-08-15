@@ -7,15 +7,14 @@
         <div class="title-container">
             <div class="title"><strong>PI Link</strong></div>
         </div>
-        <div class="icons-container">
+        <nav class="icons-container">
             <a class="image-container" href="/account">
                 <img class="header-img" src={AccountIcon} alt="account icon" />
             </a>
             <a class="image-container" href="/">
                 <img class="header-img" src={HomeIcon} alt="home icon" />
             </a>
-        </div>
-        <!-- <img src={ MagnifyingGlass } alt="Magnifying Glass Icon" /> -->
+        </nav>
     </div>
 </div>
 
