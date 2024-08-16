@@ -1,6 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-import 'dotenv/config'
-console.log(process.env.VITE_DB_URL);
 
 export default defineConfig({
 	webServer: {
