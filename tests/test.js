@@ -60,8 +60,8 @@ test.describe('register page', () => {
 		await page.getByLabel('Confirm Password*').fill('1234abcd');
 		await page.getByRole('button', { name: 'Sign Up' }).click();
 
-		// await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
-		// await expect(page.locator('div').filter({ hasText: /^Registration successful\. Please login\.$/ })).toBeVisible();
+		await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
+		await expect(page.locator('div').filter({ hasText: /^Registration successful\. Please login\.$/ })).toBeVisible();
 	})
 	
 })
