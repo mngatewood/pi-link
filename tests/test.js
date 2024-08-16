@@ -50,7 +50,7 @@ test.describe('register page', () => {
 		await expect(page.getByRole('button', { name: 'Sign Up' })).toBeVisible();
 	})
 
-	test("can successfully register", async ({ page}) => {
+	test("can successfully register", async ({ page }) => {
 		await page.getByTestId('register-firstname').click();
 		await page.getByTestId('register-firstname').fill('David');
 		await page.getByTestId('register-lastname').fill('Jones');
@@ -58,12 +58,28 @@ test.describe('register page', () => {
 		await page.getByTestId('register-password').fill('1234abcd');
 		await page.waitForTimeout(1000);
 		await page.getByLabel('Confirm Password*').fill('1234abcd');
+		await page.waitForTimeout(1000);
 		await page.getByRole('button', { name: 'Sign Up' }).click();
 
+		await expect(page).toHaveURL("/login");
 		await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
 		await expect(page.locator('div').filter({ hasText: /^Registration successful\. Please login\.$/ })).toBeVisible();
 	})
-	
+
+	test("email must be unique", async ({ page }) => {
+		await page.getByTestId('register-firstname').fill('David');
+		await page.getByTestId('register-lastname').fill('Jones');
+		await page.getByTestId('register-email').fill('djones@gmail.com');
+		await page.getByTestId('register-password').fill('1234abcd');
+		await page.waitForTimeout(1000);
+		await page.getByLabel('Confirm Password*').fill('1234abcd');
+		await page.waitForTimeout(1000);
+		await page.getByRole('button', { name: 'Sign Up' }).click();
+
+		await expect(page).toHaveURL("/register");
+		await expect(page.getByRole('heading', { name: 'Register' })).toBeVisible();
+		// await expect(page.getByText('The email djones@gmail.com is invalid or already in use.')).toBeVisible();
+	})
 })
 
 test.describe('login page', () => {
@@ -83,8 +99,29 @@ test.describe('login page', () => {
 		await expect(page.getByRole('textbox', { name: 'Password' })).toBeVisible();
 		await expect(page.getByRole('link', { name: 'Cancel' })).toBeVisible();
 		await expect(page.getByRole('button', { name: 'Log In' })).toBeVisible();
+	});
+
+	test("can successfully login", async ({ page }) => {
+		await page.goto('/register');
+		await page.getByTestId('register-firstname').fill('David');
+		await page.getByTestId('register-lastname').fill('Jones');
+		await page.getByTestId('register-email').fill('djones@gmail.com');
+		await page.getByTestId('register-password').fill('1234abcd');
+		await page.waitForTimeout(1000);
+		await page.getByLabel('Confirm Password*').fill('1234abcd');
+		await page.getByRole('button', { name: 'Sign Up' }).click();
+		await page.goto('login');
+		await page.getByRole('textbox', { name: 'Email Address' }).fill('djones@gmail.com');
+		await page.getByRole('textbox', { name: 'Password' }).fill('1234abcd');
+		await page.waitForTimeout(1000);
+		await page.getByRole('button', { name: 'Log In' }).click();
+
+		await expect(page).toHaveURL("/play");
+		await expect(page.getByRole('heading', { name: 'Welcome!' })).toBeVisible();
+		await expect(page.getByRole('link', { name: 'join' })).toHaveCount(2);
+		await expect(page.getByRole('link', { name: 'host' })).toHaveCount(2);
 	})
-	
+
 })
 
 	
