@@ -5,7 +5,7 @@
     import Lobby from '$lib/components/Lobby.svelte';
     import Game from '$lib/components/Game.svelte';
 
-    const pb = new PocketBase('https://backend-empty-violet-3106.fly.dev/');
+    const pb = new PocketBase(import.meta.env.VITE_DB_URL);
 
     export let data;
     let game = data.game;
@@ -15,7 +15,7 @@
         const data = await pb.collection('games').getOne(game.id, {
             expand: 'players',
             fields: 'id, code, host, status, players, round, stage, playerRoles, playerOrder, clue, votes, votingCompleted, results, expand'
-    });
+        });
         return data;
     }
 
