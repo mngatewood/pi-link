@@ -15,7 +15,8 @@ export const actions = {
             email: formData.email,
             firstname: formData.firstname,
             lastname: formData.lastname,
-            message: ''
+            message: '',
+            types: new Array(),
         }
                 
         try {
@@ -26,8 +27,11 @@ export const actions = {
             console.log('error', err);
             console.log('data', err.data);
             registerResponse.error = true;
-            registerResponse.message = err.message;
+            registerResponse.types = Object.keys(err.data.data);
+            registerResponse.message = Object.keys(err.data.data).includes("email") ? `The email ${registerResponse.email} is invalid or already in use.` : err.data.message;
         } 
+
+        console.log("create result", createResult)
         
         if (createResult) {
             throw redirect(303, '/login?registered=true');
