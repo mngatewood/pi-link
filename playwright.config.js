@@ -60,6 +60,7 @@ export default defineConfig({
 				channel: 'chrome'
 			},
 			dependencies: ['cleanup db'],
-		},	]
+		},
+	]
 });
 

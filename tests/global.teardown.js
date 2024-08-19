@@ -10,7 +10,6 @@ const getAllUserIds = async () => {
 const deleteAllUsers = async () => {
     const userIds = await getAllUserIds();
     await Promise.all(userIds.map(async (userId) => {
-        console.log("userId", userId)
         await pb.collection('users').delete(userId)
     }));
 }
@@ -23,7 +22,6 @@ const getAllGameIds = async () => {
 const deleteAllGames = async () => {
     const gameIds = await getAllGameIds();
     await Promise.all(gameIds.map(async (gameId) => {
-        console.log("gameId", gameId)
         await pb.collection('games').delete(gameId)
     }));
 }

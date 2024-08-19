@@ -77,12 +77,12 @@
                 <form action="?/end" method="post" class="host-button" use:enhance >
                     <input type="hidden" name="gameId" value={data.game.id} />
                     <input type="hidden" name="playerId" value={data.user.id} />
-                    <button class="button button-cancel" type="submit">Exit Game</button>
+                    <button class="button button-cancel" type="submit">Exit</button>
                 </form>
                 <form action="?/start" method="post" class="host-button" use:enhance>
                     <input type="hidden" name="gameId" value={data.game.id} />
                     <input type="hidden" name="userId" value={data.user.id} />
-                    <button disabled={disableStart} class="button button-submit" type="submit">Start Game</button>
+                    <button disabled={disableStart} class="button button-submit" type="submit">Start</button>
                 </form>
             </div>
         {:else}
@@ -97,7 +97,7 @@
             }>
                 <input type="hidden" name="gameId" value={data.game.id} />
                 <input type="hidden" name="userId" value={data.user.id} />
-                <button class="button button-cancel" type="submit">Exit Game</button>
+                <button class="button button-cancel" type="submit">Exit</button>
             </form>
         {/if}
     </div>
