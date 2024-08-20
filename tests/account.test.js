@@ -1,7 +1,11 @@
 import { expect, test } from '@playwright/test';
-import { registerLoginUser } from './test-helpers'
+import { emptyDatabase, registerLoginUser } from './test-helpers'
 
 test.describe('account page', () => {
+
+    test.beforeAll(async () => {
+        await emptyDatabase();
+    });
 
     test.beforeEach(async ({ page }) => {
         await registerLoginUser({ page }, "David", "Jones", "djones@gmail.com", "1234abcd");

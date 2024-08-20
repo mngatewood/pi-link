@@ -1,7 +1,11 @@
 import { expect, test } from '@playwright/test';
-import { registerLoginUser } from './test-helpers'
+import { emptyDatabase, registerLoginUser } from './test-helpers'
 
 test.describe('login page', () => {
+
+    test.beforeAll(async () => {
+        await emptyDatabase();
+    });
 
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
