@@ -1,9 +1,13 @@
 import { expect, test } from '@playwright/test';
-import { registerUser } from './test-helpers'
+import { emptyDatabase, registerUser } from './test-helpers'
 
 test.describe.configure({ mode: 'serial' });
 
 test.describe('register page', () => {
+
+    test.beforeAll(async () => {
+        await emptyDatabase();
+    });
 
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
