@@ -152,8 +152,6 @@ export async function startGame ({ page }) {
 }
 
 export async function informantGameplayDbSetup () {
-    await emptyDatabase()
-
     let gameData = {
         code: '1234',
         players: new Array(),

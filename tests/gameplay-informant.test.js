@@ -1,15 +1,17 @@
 import { expect, test } from '@playwright/test';
-import { informantGameplayDbSetup, loginUser, joinGame, completeVotes } from './test-helpers'
+import { emptyDatabase, informantGameplayDbSetup, loginUser, joinGame, completeVotes } from './test-helpers'
 
 let game;
 
 test.describe('game page', () => {
 
     test.beforeAll(async () => {
+        await emptyDatabase();
         game = await informantGameplayDbSetup();
     });
 
-    test('can play the game', async ({ page }, workerInfo) => {
+    test('informer can complete a round', async ({ page }, workerInfo) => {
+
         await loginUser({ page }, "djones@gmail.com", "1234abcd");
         await joinGame({ page }, game.code.toString());
 
