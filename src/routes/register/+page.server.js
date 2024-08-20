@@ -22,6 +22,7 @@ export const actions = {
         try {
             //create the user
             const result = await locals.pb.collection('users').create(formData);
+            console.log("register", formData)
             if (result) createResult = true;
         } catch (err) {
             console.log('error', err);

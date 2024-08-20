@@ -7,6 +7,7 @@ export default defineConfig({
 	},
 	testDir: 'tests',
 	testMatch: /(.+\.)?(test|spec)\.[jt]s/,
+	workers: 1,
 	projects: [
 		{
 			name: 'cleanup db',

@@ -20,7 +20,7 @@
                 <input type="hidden" name="gameId" value={data.game.id} />
                 <input type="hidden" name="isInformant" value={isInformant} />
                 <button type="button" style="display:{displayContinue}" id="continue" class="href-button button-fit-content button-submit" on:click={() => { displayConfirm = "flex", displayContinue = "none" }}>All players have defended their cards.</button>
-                <button type="submit" style="display:{displayConfirm}" id="confirm" class="href-button button-fit-content button-submit" on:click={() => { displayConfirm = "none", displayContinue = "flex" }}>Proceed to the next stage.</button>
+                <button type="submit" style="display:{displayConfirm}" id="confirm" class="href-button button-fit-content button-submit" on:click={() => { displayConfirm = "none", displayContinue = "flex" }}>Proceed to next stage.</button>
             </div>
         </form>
     {:else}
