@@ -68,6 +68,6 @@ export async function startGame ({ page }) {
     await page.waitForTimeout(500);
     await loginUser({ page }, "djones@gmail.com", "1234abcd");
     await joinGame({ page }, gameCode);
-    await page.getByRole('button', { name: 'Start Game' }).click();
+    await page.getByRole('button', { name: 'Start' }).click();
     return;
 }
