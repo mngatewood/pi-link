@@ -151,7 +151,7 @@ export async function startGame ({ page }) {
     return;
 }
 
-export async function informantGameplayDbSetup () {
+export async function gameplayTestDbSetup () {
     let gameData = {
         code: '1234',
         players: new Array(),
@@ -177,17 +177,18 @@ export async function informantGameplayDbSetup () {
         "7": gameData.players[2],
         "8": gameData.players[3],
     }
-    gameData.playerRoles[gameData.players[0]] = "Informant";
-    gameData.playerRoles[gameData.players[1]] = "Conspirator";
-    gameData.playerRoles[gameData.players[2]] = "Detective";
-    gameData.playerRoles[gameData.players[3]] = "Detective";
+    gameData.playerRoles = {
+        [gameData.players[0]] : "Informant",
+        [gameData.players[1]] : "Conspirator",
+        [gameData.players[2]] : "Detective",
+        [gameData.players[3]] : "Detective",
+    }
 
     const game = await pb.collection('games').create(gameData);
-
     return game;
 }
 
-export async function completeVotes(game) {
+export async function mockCompleteVotes(game) {
     const voters = game.players.filter((userId) => userId != game.playerOrder["1"])
     let votes = {};
 
@@ -197,5 +198,73 @@ export async function completeVotes(game) {
     });
 
     const update = await pb.collection('games').update(game.id, {votes: votes, votingCompleted: true});
+    return update;
+}
+
+export async function mockSubmitClue(game) {
+    const data = {
+        clue: "clue",
+        stage: "submit evidence"
+    }
+    const update = await pb.collection('games').update(game.id, data);
+    return update;
+}
+
+export async function mockSubmitEvidence(game) {
+    const data = {
+        stage: "defend evidence"
+    }
+    const update = await pb.collection('games').update(game.id, data);
+    return update;
+}
+
+export async function mockDefendEvidence(game) {
+    const data = {
+        stage: "vote on conspirator"
+    }
+    const update = await pb.collection('games').update(game.id, data);
+    return update;
+}
+
+export async function mockViewResults(game) {
+    const data = {
+        stage: "view results",
+        results: {
+            1: {
+                [game.players[0]]: 0,
+                [game.players[1]]: 0,
+                [game.players[2]]: 3,
+                [game.players[3]]: 3,
+            }
+        }
+    }
+    const update = await pb.collection('games').update(game.id, data);
+    return update;
+}
+
+export async function mockViewScores(game) {
+    const data = {
+        stage: "round end",
+        playerRoles: null,
+        clue: "",
+        votingCompleted: false,
+        votes: {},
+    }
+    const update = await pb.collection('games').update(game.id, data);
+    return update;
+}
+
+export async function mockFinishRound(game) {
+    const data = {
+        stage: "inform detectives",
+        round: 2,
+        playerRoles: {
+            [game.players[0]]: "Detective",
+            [game.players[1]]: "Informant",
+            [game.players[2]]: "Detective",
+            [game.players[3]]: "Conspirator",
+        }
+    }
+    const update = await pb.collection('games').update(game.id, data);
     return update;
 }
