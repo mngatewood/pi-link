@@ -3,7 +3,7 @@ import { emptyDatabase, gameplayTestDbSetup, loginUser, joinGame, mockCompleteVo
 
 let game;
 
-test.describe('game page', () => {
+test.describe('informant journey', () => {
 
     test.beforeAll(async () => {
         await emptyDatabase();

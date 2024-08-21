@@ -61,6 +61,8 @@
         position: absolute;
         left: 5%;
         width: 90%;
+        max-height: 85%;
+        overflow: scroll;
         background-color: transparent;
         transition: top 1s; 
     }
@@ -112,7 +114,9 @@
         border-radius: 2rem 2rem 0 0;
         border-style: none;
         box-shadow: 5px 3px 10px theme('colors.orange.1');
-   }
+        max-height: 85%;
+        overflow: scroll;
+  }
 
     li {
         font-family: "Caveat", cursive;
