@@ -8,7 +8,7 @@ test.describe('login page', () => {
     });
 
     test.beforeEach(async ({ page }) => {
-        await page.goto('/');
+        await page.goto('/logout');
         await page.getByTestId('login-button').click();
     });
 

@@ -78,6 +78,7 @@ export const emptyDatabase = async () => {
 }
 
 export async function registerUser ( { page }, first, last, email, password ) {
+    await page.goto('/logout');
     await page.goto('/register');
     await page.getByTestId('register-firstname').fill(first);
     await page.getByTestId('register-lastname').fill(last);
@@ -90,6 +91,7 @@ export async function registerUser ( { page }, first, last, email, password ) {
 }
 
 export async function loginUser ( { page }, email, password ) {
+    await page.goto('logout');
     await page.goto('login');
     await page.getByRole('textbox', { name: 'Email Address' }).fill(email);
     await page.getByRole('textbox', { name: 'Password' }).fill(password);
