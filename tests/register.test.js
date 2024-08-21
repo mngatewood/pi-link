@@ -10,7 +10,7 @@ test.describe('register page', () => {
     });
 
     test.beforeEach(async ({ page }) => {
-        await page.goto('/');
+        await page.goto('/logout');
         await page.getByTestId('register-button').click();
     });
 

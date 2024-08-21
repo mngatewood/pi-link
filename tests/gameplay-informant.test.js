@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { emptyDatabase, informantGameplayDbSetup, loginUser, joinGame, completeVotes } from './test-helpers'
+import { emptyDatabase, gameplayTestDbSetup, loginUser, joinGame, mockCompleteVotes } from './test-helpers'
 
 let game;
 
@@ -7,7 +7,7 @@ test.describe('game page', () => {
 
     test.beforeAll(async () => {
         await emptyDatabase();
-        game = await informantGameplayDbSetup();
+        game = await gameplayTestDbSetup();
     });
 
     test('informer can complete a round', async ({ page }, workerInfo) => {
@@ -99,7 +99,7 @@ test.describe('game page', () => {
         await page.getByRole('button', { name: '[-]   Help' }).click();
         await page.waitForTimeout(1000);
 
-        game = await completeVotes(game);
+        game = await mockCompleteVotes(game);
         await page.screenshot({ path: `./test-results/gameplay-informant-s4b.${workerInfo.project.name}.png` });
         await expect(page.getByRole('heading', { name: 'Round One' })).toBeVisible();
         await expect(page.getByRole('heading', { name: 'vote on conspirator' })).toBeVisible();
