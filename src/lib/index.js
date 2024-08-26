@@ -5,6 +5,8 @@ export { default as PlayerAvatar } from '$lib/assets/images/player-avatar.png';
 export { default as RemoveIcon } from '$lib/assets/images/remove.png';
 export { default as HomeIcon } from '$lib/assets/images/home.png';
 export { default as AccountIcon } from '$lib/assets/images/account.png';
+export { default as MaximizeIcon } from '$lib/assets/images/maximize-icon.png';
+export { default as MinimizeIcon } from '$lib/assets/images/minimize-icon.png';
 
 export const guide = {
 	'inform detectives': [
