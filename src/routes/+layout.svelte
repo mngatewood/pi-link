@@ -2,14 +2,15 @@
 	import '../app.css';
 	import Header from '$lib/components/Header.svelte';
 	import { browser } from '$app/environment';
+	import { debounce } from '$lib/utils';
 
 	// eslint-disable-next-line no-unused-vars
 	let vh;
 
 	if (browser) {
-		window.addEventListener('resize', () => {
+		window.addEventListener('resize', debounce(() => {
 			vh = window.innerHeight * 0.1;
-		});
+		}));
 	}
 </script>
 
