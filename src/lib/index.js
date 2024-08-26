@@ -1,5 +1,4 @@
 // place files you want to import through the `$lib` alias in this folder.
-export { default as MagnifyingGlass } from "$lib/assets/images/mag-glass.png"
 export { default as VisibleIcon } from "$lib/assets/images/visible-icon.png"
 export { default as NotVisibleIcon } from "$lib/assets/images/not-visible-icon.png"
 export { default as PlayerAvatar } from "$lib/assets/images/player-avatar.png"
