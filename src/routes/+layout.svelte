@@ -20,6 +20,9 @@
 			overscroll-behavior-y: none;
 			background-color: #f3f4fb;
 			color: #1b314d;
+			height: 100vh; /* fallback */
+			height: calc(var(--vh, 1vh) * 100);
+
 		}
 	</style>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,7 +33,7 @@
 	/>
 </svelte:head>
 
-<div class="flex flex-col vh-full">
+<div class="flex flex-col">
 	<header class="sticky top-0">
 		<Header />
 	</header>
@@ -52,12 +55,8 @@
 </div>
 
 <style lang="postcss">
-	.vh-full {
-		height: 100vh; /* fallback */
-		height: calc(var(--vh, 1vh) * 100);
-	}
 
-	main {
+main {
 		display: block;
 	}
 
@@ -146,7 +145,7 @@
 
 	:global(.title) {
 		font-family: 'Titillium Web', sans-serif;
-		font-size: 4rem;
+		font-size: 3rem;
 		font-weight: 900;
 		margin: 0 1rem;
 		color: theme('colors.white.1');
