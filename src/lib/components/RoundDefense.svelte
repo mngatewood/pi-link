@@ -1,13 +1,10 @@
 <script>
-	import { VisibleIcon, NotVisibleIcon } from '$lib';
 	import { enhance } from '$app/forms';
 	import RoundHeader from './RoundHeader.svelte';
 	import FooterGuide from './FooterGuide.svelte';
 	export let data;
 
 	const isInformant = data.game.playerRoles[data.user.id] == 'Informant';
-	const playerRole = data.user.playerRole;
-	let clue = data.game.clue;
 	let displayContinue = 'flex';
 	let displayConfirm = 'none';
 </script>

@@ -1,5 +1,5 @@
 <script>
-	import { applyAction, enhance } from '$app/forms';
+	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 
 	export let form;
@@ -21,7 +21,7 @@
 	<form
 		class="flex flex-col h-full"
 		method="post"
-		use:enhance={({ formData }) => {
+		use:enhance={() => {
 			return async ({ result }) => {
 				form = result.data;
 				code = '';

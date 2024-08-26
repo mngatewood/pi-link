@@ -7,7 +7,6 @@
 	const isInformant = data.game.playerRoles[data.user.id] == 'Informant';
 	const playerRoles = JSON.stringify(data.game.playerRoles);
 	const results = data.game.results ? JSON.stringify(data.game.results) : JSON.stringify({});
-	let clue = data.game.clue;
 
 	const candidates = data.game.expand.players.filter(
 		(player) => player.id != data.user.id && data.game.playerRoles[player.id] != 'Informant'

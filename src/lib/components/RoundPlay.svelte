@@ -1,22 +1,12 @@
 <script>
-	import { VisibleIcon, NotVisibleIcon } from '$lib';
 	import { enhance } from '$app/forms';
 	import RoundHeader from './RoundHeader.svelte';
 	import FooterGuide from './FooterGuide.svelte';
 	export let data;
 
 	const isInformant = data.game.playerRoles[data.user.id] == 'Informant';
-	const playerRole = data.user.playerRole;
 	let displayContinue = 'flex';
 	let displayConfirm = 'none';
-	// let clue = "";
-	// let showClue = false;
-
-	// $: if (playerRole == "Conspirator") {
-	//     clue = "**********"
-	// } else {
-	//     clue = data.game.clue
-	// }
 </script>
 
 <RoundHeader {data} />

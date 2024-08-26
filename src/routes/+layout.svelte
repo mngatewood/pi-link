@@ -3,6 +3,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import { browser } from '$app/environment';
 
+	// eslint-disable-next-line no-unused-vars
 	let vh;
 
 	if (browser) {
