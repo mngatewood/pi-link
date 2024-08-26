@@ -1,3 +1,3 @@
 export const serializeNonPOJOs = (obj) => {
-    return structuredClone(obj);
-}
+	return structuredClone(obj);
+};

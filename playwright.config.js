@@ -10,37 +10,37 @@ export default defineConfig({
 	projects: [
 		{
 			name: 'cleanup db',
-			testMatch: /global\.teardown\.js/,
+			testMatch: /global\.teardown\.js/
 		},
 		{
 			name: 'chromium',
 			use: { ...devices['Desktop Chrome'] },
-			dependencies: [ 'cleanup db' ],
+			dependencies: ['cleanup db']
 		},
 
 		{
 			name: 'firefox',
 			use: { ...devices['Desktop Firefox'] },
-			dependencies: ['cleanup db'],
+			dependencies: ['cleanup db']
 		},
 
 		{
 			name: 'webkit',
 			use: { ...devices['Desktop Safari'] },
-			dependencies: ['cleanup db'],
+			dependencies: ['cleanup db']
 		},
 
 		/* Test against mobile viewports. */
 		{
 			name: 'Mobile Chrome',
 			use: { ...devices['Pixel 5'] },
-			dependencies: ['cleanup db'],
+			dependencies: ['cleanup db']
 		},
 
 		{
 			name: 'Mobile Safari',
 			use: { ...devices['iPhone 12'] },
-			dependencies: ['cleanup db'],
+			dependencies: ['cleanup db']
 		},
 
 		/* Test against branded browsers. */
@@ -50,7 +50,7 @@ export default defineConfig({
 				...devices['Desktop Edge'],
 				channel: 'msedge'
 			},
-			dependencies: ['cleanup db'],
+			dependencies: ['cleanup db']
 		},
 
 		{
@@ -59,8 +59,7 @@ export default defineConfig({
 				...devices['Desktop Chrome'],
 				channel: 'chrome'
 			},
-			dependencies: ['cleanup db'],
-		},
+			dependencies: ['cleanup db']
+		}
 	]
 });
-
