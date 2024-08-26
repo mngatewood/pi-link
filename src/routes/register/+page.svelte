@@ -19,8 +19,6 @@
     $:showPassError = (passMatchError || passLengthError) && password?.length && confirm?.length;
     $:showEmailError = (form?.error && form?.types.includes("email") && email == form?.email)
 
-    $: console.log("form", form);
-
     onMount(async () => {
         emailInput = document.getElementById("email");
     });
