@@ -3,23 +3,27 @@
 	import { browser } from '$app/environment';
 	import { debounce } from '$lib/utils';
 
-	let isMobileDevice, fullscreenEnabled, fullscreenActive = false;
+	let isMobileDevice,
+		fullscreenEnabled,
+		fullscreenActive = false;
 
-	$: if(browser) {
+	$: if (browser) {
 		isMobileDevice = window.innerWidth < 768 || screen.width < 768;
 		fullscreenEnabled = document.fullscreenEnabled;
 		fullscreenActive = document.fullscreenElement != null;
-		window.addEventListener('resize', debounce(() => {
-			isMobileDevice = window.innerWidth < 768 || screen.width < 768;
-		}));
+		window.addEventListener(
+			'resize',
+			debounce(() => {
+				isMobileDevice = window.innerWidth < 768 || screen.width < 768;
+			})
+		);
 	}
 
 	const toggleFullscreen = (event) => {
 		event.preventDefault();
 		fullscreenActive ? document.exitFullscreen() : document.body.requestFullscreen();
 		fullscreenActive = !fullscreenActive;
-	}
-
+	};
 </script>
 
 <div>
@@ -34,10 +38,15 @@
 			<a class="image-container" href="/">
 				<img class="header-img" src={HomeIcon} alt="home icon" />
 			</a>
-			
+
 			{#if isMobileDevice}
 				<a class="image-container" href="/">
-					<button id="toggle-fullscreen" on:click={(e) => { toggleFullscreen(e) }}>
+					<button
+						id="toggle-fullscreen"
+						on:click={(e) => {
+							toggleFullscreen(e);
+						}}
+					>
 						{#if fullscreenActive}
 							<img class="header-img" src={MinimizeIcon} alt="exit fullscreen icon" />
 						{:else}
@@ -50,9 +59,7 @@
 	</div>
 </div>
 
-
 <style lang="postcss">
-
 	button#toggle-fullscreen {
 		margin: 0;
 		padding: 0;

@@ -8,9 +8,12 @@
 	let vh;
 
 	if (browser) {
-		window.addEventListener('resize', debounce(() => {
-			vh = window.innerHeight * 0.1;
-		}));
+		window.addEventListener(
+			'resize',
+			debounce(() => {
+				vh = window.innerHeight * 0.1;
+			})
+		);
 	}
 </script>
 
@@ -22,7 +25,6 @@
 			color: #1b314d;
 			height: 100vh; /* fallback */
 			height: calc(var(--vh, 1vh) * 100);
-
 		}
 	</style>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,8 +57,7 @@
 </div>
 
 <style lang="postcss">
-
-main {
+	main {
 		display: block;
 	}
 
