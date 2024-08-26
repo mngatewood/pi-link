@@ -1,15 +1,23 @@
 <script>
     import "../app.css";
     import Header from '$lib/components/Header.svelte';
+    import { browser } from '$app/environment';
+
+    let vh;
+
+    if(browser) {
+        window.addEventListener('resize', () => {
+            vh = window.innerHeight * 0.1;
+        });
+    }
 </script>
 
 <svelte:head>
     <style>
         body{
-            margin: 0;
             overscroll-behavior-y: none;
             background-color: #f3f4fb;
-            color: theme("colors.blue.1");
+            color: #1b314d;
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Lilita+One&family=Open+Sans:ital,wght@0,500;1,500&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
 </svelte:head>
 
-<div class="flex flex-col h-screen">
+<div class="flex flex-col vh-full">
     <header class="sticky top-0">
         <Header />
     </header>
@@ -35,6 +43,11 @@
 </div>
 
 <style lang="postcss">
+
+    .vh-full {
+        height: 100vh; /* fallback */
+        height: calc(var(--vh, 1vh) * 100);
+    }
     
     main {
         display: block;
