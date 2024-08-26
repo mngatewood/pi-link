@@ -34,10 +34,12 @@
         <slot />
     </main>
     <div id="landscape-warning">
-        <h1>Landscape Orientation Detected</h1>
         <div>
-            <h4>This application is best experienced in portrait orientation when using smaller devices.</h4>
-            <h4>Please reorient your device to portrait mode to continue.</h4>
+            <h1>Landscape Orientation Detected</h1>
+            <div>
+                <h4>This application is best experienced in portrait orientation when using smaller devices.</h4>
+                <h4>Please reorient your device to portrait mode to continue.</h4>
+            </div>
         </div>
     </div>
 </div>
@@ -121,17 +123,16 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        width: 550px;
-        height: calc(100vh - 97.5px);
+        height: 100%;
         margin: 0 auto;
     }
 
-    #landscape-warning > h1, #landscape-warning > div > h4 {
+    #landscape-warning > div > h1, #landscape-warning > div > div > h4 {
         margin: 2rem auto;
     }
 
-    #landscape-warning > div {
-        width: 400px;
+    #landscape-warning > div > div {
+        width: 440px;
         height: 150px;
         margin: 1rem auto;
     }
@@ -319,12 +320,12 @@
 
 /* smaller devices in landscape orientation */
 @media screen and (orientation: landscape) and (max-height: 479px) {
-    main {
+    header, main {
         display: none;
     }
 
     div#landscape-warning {
-        display: block;
+        display: flex;
     }
 }
 
@@ -355,7 +356,7 @@
 
 @media only screen and (min-width: 360px) {
 
-    main {
+    header, main {
         width: 100vw;
     }
 }
