@@ -46,7 +46,6 @@
 		</form>
 	{/if}
 </div>
-<FooterGuide {data} />
 
 <style lang="postcss">
 	.player-card > :nth-child(1) {

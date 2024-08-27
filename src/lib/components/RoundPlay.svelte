@@ -40,7 +40,6 @@
 		<h3>Waiting for all players to play two cards.</h3>
 	{/if}
 </div>
-<FooterGuide {data} />
 
 <style lang="postcss">
 	button.button-submit {

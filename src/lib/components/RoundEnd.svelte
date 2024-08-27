@@ -124,7 +124,6 @@
 		{/if}
 	{/if}
 </div>
-<FooterGuide {data} />
 
 <style lang="postcss">
 	.results-container {
