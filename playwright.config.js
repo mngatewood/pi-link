@@ -43,6 +43,34 @@ export default defineConfig({
 			dependencies: ['cleanup db']
 		},
 
+		{
+			name: 'iPhone 14 Pro',
+			use: { ...devices['iPhone 14 Pro'] },
+			dependencies: ['cleanup db']
+		},
+
+		{
+			name: 'OnePlus 8T',
+			use: {
+				"userAgent": "Mozilla/5.0 (Linux; Android 8.0.0; SM-G965U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.6613.36 Mobile Safari/537.36",
+				"viewport": {
+					"width": 412,
+					"height": 914
+				},
+				"deviceScaleFactor": 2.625,
+				"isMobile": true,
+				"hasTouch": true,
+				"defaultBrowserType": "chromium",
+			},
+			dependencies: ['cleanup db']
+		},
+
+		{
+			name: 'Google Pixel 7',
+			use: { ...devices["Pixel 7"] },
+			dependencies: ['cleanup db']
+		},
+
 		/* Test against branded browsers. */
 		{
 			name: 'Microsoft Edge',
