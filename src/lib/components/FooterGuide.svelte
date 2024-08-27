@@ -19,7 +19,7 @@
 		}
 	};
 
-	$: stage = data?.game?.stage ? data.game.stage : $page.url.pathname;
+	$: stage = data?.game?.stage ? data.game.stage : $page.url.pathname.slice(0,10);
 	$: bullets = guide[stage].find((roleObject) => roleObject.roles.includes(playerRole())).bullets;
 	$: bulletsHeight = expandGuide ? "1000px" : "0px";
 	$: bulletsTransition = expandGuide ? "max-height 1s" : "max-height 100ms";
