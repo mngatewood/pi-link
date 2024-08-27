@@ -7,9 +7,6 @@
 
 	let data;
 
-	let time = Date.now();
-	console.log("time", time)
-
 	// eslint-disable-next-line no-unused-vars
 	let vh;
 
@@ -72,6 +69,8 @@
 		position: fixed;
 		height: calc(100% - 50px);
 		top: 50px;
+		left: 50%;
+		transform: translateX(-50%);
 		margin: auto;
 		padding: 2rem 1rem 2.5rem 1rem;
 		overflow: scroll;
