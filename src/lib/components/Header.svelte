@@ -88,8 +88,8 @@
 	}
 
 	.image-container {
-		width: 2rem;
-		height: 2rem;
+		width: 1.5rem;
+		height: 1.5rem;
 		margin: 0 0.75rem;
 	}
 </style>

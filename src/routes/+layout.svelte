@@ -18,15 +18,7 @@
 </script>
 
 <svelte:head>
-	<style>
-		body {
-			overscroll-behavior-y: none;
-			background-color: #f3f4fb;
-			color: #1b314d;
-			height: 100vh; /* fallback */
-			height: calc(var(--vh, 1vh) * 100);
-		}
-	</style>
+	<style></style>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link
@@ -57,7 +49,16 @@
 </div>
 
 <style lang="postcss">
-	main {
+
+	:global(body), :global(body::backdrop) {
+		overscroll-behavior-y: none;
+		background-color: #f3f4fb;
+		color: #1b314d;
+		height: 100vh; /* fallback */
+		height: calc(var(--vh, 1vh) * 100);
+	}
+
+	:global(main) {
 		display: block;
 	}
 
@@ -146,7 +147,7 @@
 
 	:global(.title) {
 		font-family: 'Titillium Web', sans-serif;
-		font-size: 3rem;
+		font-size: 2rem;
 		font-weight: 900;
 		margin: 0 1rem;
 		color: theme('colors.white.1');
