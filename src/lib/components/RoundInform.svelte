@@ -48,7 +48,6 @@
 		<h3>Waiting for the Informant to submit a clue.</h3>
 	{/if}
 </div>
-<FooterGuide {data} />
 
 <style lang="postcss">
 	/* Hack for iPhone not using global styles on Submit button */

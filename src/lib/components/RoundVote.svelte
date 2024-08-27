@@ -92,7 +92,6 @@
 		</form>
 	{/if}
 </div>
-<FooterGuide {data} />
 
 <style lang="postcss">
 	.radio-label > input {

@@ -9,6 +9,90 @@ export { default as MaximizeIcon } from '$lib/assets/images/maximize-icon.png';
 export { default as MinimizeIcon } from '$lib/assets/images/minimize-icon.png';
 
 export const guide = {
+	'/': [
+		{
+			roles: ['user'],
+			bullets: [
+				'If this is your first time here, please click the Register button to create an account.',
+				'If you have already registered, click the Login button to proceed.'
+			]
+		},
+	],
+	'/register': [
+		{
+			roles: ['user'],
+			bullets: [
+				'Complete the required fields and click Sign Up to continue.',
+				'The Email Address field must contain a valid email address. We will never send you an unsolicited email for any reason.',
+				'Password and Confirm Password fields much match exactly.',
+				'All fields are required.'
+			]
+		},
+	],
+	'/login': [
+		{
+			roles: ['user'],
+			bullets: [
+				'Enter your email address and password to continue.',
+				'Change password functionality will be available in a future release.'
+			]
+		},
+	],
+	'/account': [
+		{
+			roles: ['user'],
+			bullets: [
+				'You can logout of your account by clicking the Logout button.',
+				'Additional account management features will be implemented in a future release.'
+			]
+		},
+	],
+	'/play': [
+		{
+			roles: ['user'],
+			bullets: [
+				'You can host a new game or join an existing game.',
+				'If you were provided a code to join a game, click the Join Game button.',
+				'If you would like to start a new game, click the Host Game button and follow the prompts.',
+				'A minimum of four (4) players are required to play a game.'
+			]
+		},
+	],
+	'/play/host': [
+		{
+			roles: ['user'],
+			bullets: [
+				'Share the code on this page with your friends to have them join your game.',
+				'Click the Continue button to be directed to the lobby where you can wait for others to join.  The game code will also be displayed in the lobby.',
+				'A minimum of four (4) players are required to play a game.',
+				'All players will be required to register and login before joining the game.',
+				"If you don't want to host a game right now, click the Cancel button to return to the main menu."
+			]
+		},
+	],
+	'/play/join': [
+		{
+			roles: ['user'],
+			bullets: [
+				'If you were provided a code to join a game, enter it in the Enter Code field and click the Join button.',
+				'Otherwise, click the Cancel button to return to the main menu.  Then click the Host Game button to start a new game.'
+			]
+		},
+	],
+	'/play/game': [
+		{
+			roles: ['user'],
+			bullets: [
+				'This is the lobby, where you will wait for others to join your game.',
+				"If you haven't already, share the code provided on this page with your friends.",
+				"As players join the game, their names will be displayed on this page.",
+				"You can remove players from your game by click the 'X' next to their name.",
+				'A minimum of four (4) players are required to play a game.',
+				'Once all players have joined, click the Start button to begin the game.',
+				'Click the Exit button to return to the main menu.'
+			]
+		},
+	],
 	'inform detectives': [
 		{
 			roles: ['Informant'],

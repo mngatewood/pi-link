@@ -40,7 +40,6 @@
 		<h3>Waiting for all players to defend their card choice.</h3>
 	{/if}
 </div>
-<FooterGuide {data} />
 
 <style lang="postcss">
 	button#confirm {

@@ -1,8 +1,11 @@
 <script>
 	import '../app.css';
 	import Header from '$lib/components/Header.svelte';
+	import FooterGuide from '$lib/components/FooterGuide.svelte';
 	import { browser } from '$app/environment';
 	import { debounce } from '$lib/utils';
+
+	let data;
 
 	// eslint-disable-next-line no-unused-vars
 	let vh;
@@ -27,12 +30,12 @@
 	/>
 </svelte:head>
 
-<div class="flex flex-col">
-	<header class="sticky top-0">
+<div>
+	<header>
 		<Header />
 	</header>
 
-	<main class="flex-grow overflow-scroll m-auto px-4 pt-8 pb-10">
+	<main>
 		<slot />
 	</main>
 	<div id="landscape-warning">
@@ -46,6 +49,9 @@
 			</div>
 		</div>
 	</div>
+	<footer>
+		<FooterGuide {data} />
+	</footer>
 </div>
 
 <style lang="postcss">
@@ -60,6 +66,20 @@
 
 	:global(main) {
 		display: block;
+		position: fixed;
+		height: calc(100% - 50px);
+		top: 50px;
+		left: 50%;
+		transform: translateX(-50%);
+		margin: auto;
+		padding: 2rem 1rem 2.5rem 1rem;
+		overflow: scroll;
+	}
+
+	:global(header) {
+		position: fixed;
+		height: 50px;
+		top: 0px;
 	}
 
 	:global(h1) {
@@ -130,7 +150,7 @@
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
-		height: 100%;
+		height: 100vh;
 		margin: 0 auto;
 	}
 
@@ -329,7 +349,8 @@
 	/* smaller devices in landscape orientation */
 	@media screen and (orientation: landscape) and (max-height: 479px) {
 		header,
-		main {
+		main,
+		footer {
 			display: none;
 		}
 
@@ -364,7 +385,8 @@
 
 	@media only screen and (min-width: 360px) {
 		header,
-		main {
+		main,
+		footer {
 			width: 100vw;
 		}
 	}
