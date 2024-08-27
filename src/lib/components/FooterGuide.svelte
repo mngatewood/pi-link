@@ -53,7 +53,7 @@
 
 <style lang="postcss">
 	#footer-guide-container {
-		position: absolute;
+		position: fixed;
 		bottom: 0;
 		left: 5%;
 		width: 90%;
