@@ -9,6 +9,94 @@ export { default as MaximizeIcon } from '$lib/assets/images/maximize-icon.png';
 export { default as MinimizeIcon } from '$lib/assets/images/minimize-icon.png';
 
 export const guide = {
+	'/': [
+		{
+			roles: ['user'],
+			bullets: [
+				'This is the home page.',
+			]
+		},
+	],
+	'/register': [
+		{
+			roles: ['user'],
+			bullets: [
+				'This is the register page.',
+			]
+		},
+	],
+	'/login': [
+		{
+			roles: ['user'],
+			bullets: [
+				'This is the login page.',
+			]
+		},
+	],
+	'/account': [
+		{
+			roles: ['user'],
+			bullets: [
+				'This is the account page.',
+			]
+		},
+	],
+	'/play': [
+		{
+			roles: ['user'],
+			bullets: [
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+				'This is the play page.',
+			]
+		},
+	],
+	'/play/host': [
+		{
+			roles: ['user'],
+			bullets: [
+				'This is the host page.',
+			]
+		},
+	],
+	'/play/join': [
+		{
+			roles: ['user'],
+			bullets: [
+				'This is the join page.',
+			]
+		},
+	],
+	'/play/game': [
+		{
+			roles: ['user'],
+			bullets: [
+				'This is the game page.',
+			]
+		},
+	],
 	'inform detectives': [
 		{
 			roles: ['Informant'],
