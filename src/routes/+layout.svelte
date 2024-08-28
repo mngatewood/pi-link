@@ -4,8 +4,10 @@
 	import FooterGuide from '$lib/components/FooterGuide.svelte';
 	import { browser } from '$app/environment';
 	import { debounce } from '$lib/utils';
+	import { userStore } from '$lib/stores';
 
 	let data;
+	$: data = $userStore;
 
 	// eslint-disable-next-line no-unused-vars
 	let vh;
@@ -50,7 +52,7 @@
 		</div>
 	</div>
 	<footer>
-		<FooterGuide {data} />
+		<FooterGuide />
 	</footer>
 </div>
 
