@@ -159,9 +159,10 @@
 	}
 
 	.remove-button {
+		padding: 0;
+		margin-right: 0.25rem;
 		background-color: transparent;
 		box-shadow: none;
-		margin-right: 0.25rem;
 	}
 
 	.remove-icon {
