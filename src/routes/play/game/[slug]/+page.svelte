@@ -4,12 +4,17 @@
 	import PocketBase from 'pocketbase';
 	import Lobby from '$lib/components/Lobby.svelte';
 	import Game from '$lib/components/Game.svelte';
+	import { userStore, gameStore } from '$lib/stores.js'
 
 	const pb = new PocketBase(import.meta.env.VITE_DB_URL);
 
 	export let data;
+
 	let game = data.game;
 	let player = data.user;
+
+	$: $gameStore = data?.game;
+	$: $userStore = data?.user;
 
 	const getGame = async () => {
 		const data = await pb.collection('games').getOne(game.id, {
