@@ -13,16 +13,15 @@
 		? game.expand.players.find((player) => player.id == informantId)
 		: null;
 
-	let isInformant, playerRole, informantName;
+	let isInformant, isConspirator, playerRole, informantName;
+
 	$: isInformant = game.playerRoles ? game.playerRoles[data.user.id] == 'Informant' : false;
+	$: isConspirator = game.playerRoles ? game.playerRoles[data.user.id] == 'Conspirator' : false;
 	$: playerRole = game.playerRoles ? game.playerRoles[player.id] : '';
 	$: informantName = informantObject
 		? informantObject.firstname + ' ' + informantObject.lastname.charAt() + '.'
 		: '';
-
-	data.user.isInformant = isInformant;
-	data.game.informantName = informantName;
-	data.user.playerRole = playerRole;
+	$: console.log("informant name", informantName)
 
 	let clue = '';
 	let showClueContainer = false;
@@ -88,17 +87,20 @@
 	{#if showClueContainer}
 		<div class="round-header-container">
 			<div class="round-header-card">
-				{#if playerRole == 'Conspirator'}
-					<div class="clue"><strong>Clue:</strong> {clue}</div>
-				{:else if !hideClue}
-					<div class="clue"><strong>Clue:</strong> {clue}</div>
+				{#if hideClue}
+					<div class="clue"><strong>Clue:</strong> **********</div>
+					<button class="btn-visibility" type="button" on:click={() => (hideClue = false)}>
+						<img class="mag-glass" src={VisibleIcon} alt="Magnifying Glass Icon" />
+					</button>
+				{:else if isConspirator}
+					<div class="clue"><strong>Clue:</strong> *** N/A ***</div>
 					<button class="btn-visibility" type="button" on:click={() => (hideClue = true)}>
 						<img class="mag-glass" src={NotVisibleIcon} alt="Magnifying Glass Icon" />
 					</button>
 				{:else}
-					<div class="clue"><strong>Clue:</strong> **********</div>
-					<button class="btn-visibility" type="button" on:click={() => (hideClue = false)}>
-						<img class="mag-glass" src={VisibleIcon} alt="Magnifying Glass Icon" />
+					<div class="clue"><strong>Clue:</strong> {clue}</div>
+					<button class="btn-visibility" type="button" on:click={() => (hideClue = true)}>
+						<img class="mag-glass" src={NotVisibleIcon} alt="Magnifying Glass Icon" />
 					</button>
 				{/if}
 			</div>

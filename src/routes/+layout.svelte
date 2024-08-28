@@ -195,7 +195,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-start;
 		width: 100%;
 		margin: 0.25rem 0;
 		padding: 0.5rem;
@@ -285,7 +285,7 @@
 		box-shadow: unset;
 		background-color: theme('colors.yellow.1');
 		border-radius: 0;
-		padding: 0;
+		padding: 0.5rem 0;
 	}
 
 	:global(.btn-visibility > img) {
