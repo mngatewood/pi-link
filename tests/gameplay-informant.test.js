@@ -32,6 +32,7 @@ test.describe('informant journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('Draw six cards from the draw pile')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-informant-s1-help.${workerInfo.project.name}.png`
 		});
@@ -56,6 +57,7 @@ test.describe('informant journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('Starting with the player to your')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-informant-s2-help.${workerInfo.project.name}.png`
 		});
@@ -86,6 +88,7 @@ test.describe('informant journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('State your clue and explain why')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-informant-s3-help.${workerInfo.project.name}.png`
 		});
@@ -118,6 +121,7 @@ test.describe('informant journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('As the Informant, you may not')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-informant-s4-help.${workerInfo.project.name}.png`
 		});
@@ -157,6 +161,7 @@ test.describe('informant journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('Each detective who voted correctly')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-informant-s5-help.${workerInfo.project.name}.png`
 		});
@@ -184,6 +189,7 @@ test.describe('informant journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('Discard your cards.')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-informant-s6-help.${workerInfo.project.name}.png`
 		});
