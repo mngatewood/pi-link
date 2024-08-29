@@ -62,7 +62,7 @@ test.describe('conspirator journey', () => {
 			page.getByRole('heading', { name: 'Waiting for all players to play' })
 		).toBeVisible();
 		await expect(page.getByRole('button', { name: '[+]   Help' })).toBeVisible();
-		await expect(page.getByRole('button', { name: 'Magnifying Glass Icon' })).toHaveCount(1);
+		await expect(page.getByRole('button', { name: 'Magnifying Glass Icon' })).toHaveCount(2);
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
