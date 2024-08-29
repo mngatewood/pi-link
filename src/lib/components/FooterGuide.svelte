@@ -1,8 +1,19 @@
 <script>
 	import { guide } from '$lib';
 	import { page } from '$app/stores';  
+	import { userStore, gameStore } from '$lib/stores.js'
 
-	export let data;
+	let userData, gameData;
+
+	userStore.subscribe(user => {
+		userData = user;
+	});
+
+	gameStore.subscribe(game => {
+		gameData = game;
+	});
+
+	$: data = { user: userData, game: gameData }
 	let stage;
 	let bullets = [];
 	let expandGuide = false; // start with guide hidden
@@ -10,10 +21,12 @@
 	let bulletsTransition = "max-height 1s";
 
 	const playerRole = () => {
-		if (data?.game?.playerRoles) {
-			return data.game.playerRoles[data.user.id];
+		if (!data?.game || data?.game?.status == "not-started") {
+			return "user"
 		} else if (data?.game?.stage == 'round end') {
 			return data.game.host == data.user.id ? 'host' : 'player';
+		} else if (data?.game.status == "in-progress") {
+			return data.game.playerRoles[data.user.id];
 		} else {
 			return "user";
 		}

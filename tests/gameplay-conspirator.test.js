@@ -41,6 +41,7 @@ test.describe('conspirator journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('Wait for the Informant to draw six cards.')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-conspirator-s1-help.${workerInfo.project.name}.png`
 		});
@@ -61,10 +62,11 @@ test.describe('conspirator journey', () => {
 			page.getByRole('heading', { name: 'Waiting for all players to play' })
 		).toBeVisible();
 		await expect(page.getByRole('button', { name: '[+]   Help' })).toBeVisible();
-		await expect(page.getByRole('button', { name: 'Magnifying Glass Icon' })).toHaveCount(1);
+		await expect(page.getByRole('button', { name: 'Magnifying Glass Icon' })).toHaveCount(2);
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('As the Conspirator, you are unable')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-conspirator-s2-help.${workerInfo.project.name}.png`
 		});
@@ -88,6 +90,7 @@ test.describe('conspirator journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('The Informant states their clue')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-conspirator-s3-help.${workerInfo.project.name}.png`
 		});
@@ -132,6 +135,7 @@ test.describe('conspirator journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('Select a player from the list to')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-conspirator-s4-help.${workerInfo.project.name}.png`
 		});
@@ -158,6 +162,7 @@ test.describe('conspirator journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('Each detective who voted correctly')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-conspirator-s5-help.${workerInfo.project.name}.png`
 		});
@@ -185,6 +190,7 @@ test.describe('conspirator journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
+		await expect(page.getByText('Discard your cards.')).toBeVisible()
 		await page.screenshot({
 			path: `./test-results/gameplay-conspirator-s6-help.${workerInfo.project.name}.png`
 		});
