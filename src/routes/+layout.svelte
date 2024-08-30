@@ -199,7 +199,7 @@
 		width: 100%;
 		margin: 0.25rem 0;
 		padding: 0.5rem;
-		font-size: xx-large;
+		font-size: x-large;
 		background-color: theme('colors.white.1');
 		border: 2px solid theme('colors.brown.1');
 		border-radius: 0.5rem;
@@ -381,7 +381,7 @@
 
 		:global(.round-header-card) {
 			line-height: 2.25rem;
-			font-size: large;
+			font-size: medium;
 		}
 	}
 
