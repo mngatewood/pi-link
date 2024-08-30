@@ -197,9 +197,7 @@
 </div>
 
 <style lang="postcss">
-
 	button.btn-visibility {
 		padding-top: 0;
 	}
-
 </style>

@@ -16,7 +16,7 @@ export const guide = {
 				'If this is your first time here, please click the Register button to create an account.',
 				'If you have already registered, click the Login button to proceed.'
 			]
-		},
+		}
 	],
 	'/register': [
 		{
@@ -27,7 +27,7 @@ export const guide = {
 				'Password and Confirm Password fields much match exactly.',
 				'All fields are required.'
 			]
-		},
+		}
 	],
 	'/login': [
 		{
@@ -36,7 +36,7 @@ export const guide = {
 				'Enter your email address and password to continue.',
 				'Change password functionality will be available in a future release.'
 			]
-		},
+		}
 	],
 	'/account': [
 		{
@@ -45,7 +45,7 @@ export const guide = {
 				'You can logout of your account by clicking the Logout button.',
 				'Additional account management features will be implemented in a future release.'
 			]
-		},
+		}
 	],
 	'/play': [
 		{
@@ -56,7 +56,7 @@ export const guide = {
 				'If you would like to start a new game, click the Host Game button and follow the prompts.',
 				'A minimum of four (4) players are required to play a game.'
 			]
-		},
+		}
 	],
 	'/play/host': [
 		{
@@ -68,7 +68,7 @@ export const guide = {
 				'All players will be required to register and login before joining the game.',
 				"If you don't want to host a game right now, click the Cancel button to return to the main menu."
 			]
-		},
+		}
 	],
 	'/play/join': [
 		{
@@ -77,7 +77,7 @@ export const guide = {
 				'If you were provided a code to join a game, enter it in the Enter Code field and click the Join button.',
 				'Otherwise, click the Cancel button to return to the main menu.  Then click the Host Game button to start a new game.'
 			]
-		},
+		}
 	],
 	'/play/game': [
 		{
@@ -85,13 +85,13 @@ export const guide = {
 			bullets: [
 				'This is the lobby, where you will wait for others to join your game.',
 				"If you haven't already, share the code provided on this page with your friends.",
-				"As players join the game, their names will be displayed on this page.",
+				'As players join the game, their names will be displayed on this page.',
 				"You can remove players from your game by click the 'X' next to their name.",
 				'A minimum of four (4) players are required to play a game.',
 				'Once all players have joined, click the Start button to begin the game.',
 				'Click the Exit button to return to the main menu.'
 			]
-		},
+		}
 	],
 	'inform detectives': [
 		{

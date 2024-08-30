@@ -15,7 +15,9 @@ test.describe('clue validation', () => {
 		game = await gameplayTestDbSetup();
 	});
 
-	test('informer can only enter one word of 20 characters or less', async ({ page }, workerInfo) => {
+	test('informer can only enter one word of 20 characters or less', async ({
+		page
+	}, workerInfo) => {
 		await loginUser({ page }, 'djones@gmail.com', '1234abcd');
 		await joinGame({ page }, game.code.toString());
 
@@ -41,7 +43,7 @@ test.describe('clue validation', () => {
 		await page.screenshot({
 			path: `./test-results/clue-validation-3.${workerInfo.project.name}.png`
 		});
-		await expect(page.getByPlaceholder('Enter Clue')).toHaveValue("supercalifragilistic")
+		await expect(page.getByPlaceholder('Enter Clue')).toHaveValue('supercalifragilistic');
 
 		await page.getByPlaceholder('Enter Clue').fill('valid-clue');
 		await page.getByRole('button', { name: 'Submit' }).click();

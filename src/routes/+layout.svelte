@@ -57,8 +57,8 @@
 </div>
 
 <style lang="postcss">
-
-	:global(body), :global(body::backdrop) {
+	:global(body),
+	:global(body::backdrop) {
 		overscroll-behavior-y: none;
 		background-color: #f3f4fb;
 		color: #1b314d;

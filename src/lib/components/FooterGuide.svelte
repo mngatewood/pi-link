@@ -1,47 +1,47 @@
 <script>
 	import { guide } from '$lib';
-	import { page } from '$app/stores';  
-	import { userStore, gameStore } from '$lib/stores.js'
+	import { page } from '$app/stores';
+	import { userStore, gameStore } from '$lib/stores.js';
 
 	let userData, gameData;
 
-	userStore.subscribe(user => {
+	userStore.subscribe((user) => {
 		userData = user;
 	});
 
-	gameStore.subscribe(game => {
+	gameStore.subscribe((game) => {
 		gameData = game;
 	});
 
-	$: data = { user: userData, game: gameData }
+	$: data = { user: userData, game: gameData };
 	let stage;
 	let bullets = [];
 	let expandGuide = false; // start with guide hidden
-	let bulletsHeight = "0px";
-	let bulletsTransition = "max-height 1s";
+	let bulletsHeight = '0px';
+	let bulletsTransition = 'max-height 1s';
 
 	const playerRole = () => {
-		if (!data?.game || data?.game?.status == "not-started") {
-			return "user"
+		if (!data?.game || data?.game?.status == 'not-started') {
+			return 'user';
 		} else if (data?.game?.stage == 'round end') {
 			return data.game.host == data.user.id ? 'host' : 'player';
-		} else if (data?.game.status == "in-progress") {
+		} else if (data?.game.status == 'in-progress') {
 			return data.game.playerRoles[data.user.id];
 		} else {
-			return "user";
+			return 'user';
 		}
 	};
 
-	$: stage = data?.game?.stage ? data.game.stage : $page.url.pathname.slice(0,10);
+	$: stage = data?.game?.stage ? data.game.stage : $page.url.pathname.slice(0, 10);
 	$: bullets = guide[stage].find((roleObject) => roleObject.roles.includes(playerRole())).bullets;
-	$: bulletsHeight = expandGuide ? "1000px" : "0px";
-	$: bulletsTransition = expandGuide ? "max-height 1s" : "max-height 100ms";
+	$: bulletsHeight = expandGuide ? '1000px' : '0px';
+	$: bulletsTransition = expandGuide ? 'max-height 1s' : 'max-height 100ms';
 </script>
 
 <div id="footer-guide-container">
 	<div class="tabs-container">
 		<div class="tab tab-left"></div>
-		<button class="tab tab-center" on:click={() => expandGuide = !expandGuide}>
+		<button class="tab tab-center" on:click={() => (expandGuide = !expandGuide)}>
 			<span>
 				{#if expandGuide}
 					[-]
@@ -53,7 +53,10 @@
 		</button>
 		<div class="tab tab-right"></div>
 	</div>
-	<div class="footer-guide-bullets-container" style="max-height:{bulletsHeight}; transition:{bulletsTransition}" >
+	<div
+		class="footer-guide-bullets-container"
+		style="max-height:{bulletsHeight}; transition:{bulletsTransition}"
+	>
 		{#if bullets.length}
 			<ul class="list-disc">
 				{#each bullets as bullet}
