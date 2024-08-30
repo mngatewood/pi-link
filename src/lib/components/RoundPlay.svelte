@@ -1,7 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
 	import RoundHeader from './RoundHeader.svelte';
-	import FooterGuide from './FooterGuide.svelte';
 	export let data;
 
 	const isInformant = data.game.playerRoles[data.user.id] == 'Informant';

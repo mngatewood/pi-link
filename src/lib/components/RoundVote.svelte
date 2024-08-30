@@ -1,6 +1,5 @@
 <script>
 	import { enhance } from '$app/forms';
-	import FooterGuide from './FooterGuide.svelte';
 	import RoundHeader from './RoundHeader.svelte';
 	export let data;
 
@@ -95,7 +94,7 @@
 
 <style lang="postcss">
 	.radio-label > input {
-		visibility: hidden;
+		display: none;
 		position: absolute;
 	}
 

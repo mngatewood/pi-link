@@ -1,7 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
 	import RoundHeader from './RoundHeader.svelte';
-	import FooterGuide from './FooterGuide.svelte';
 	export let data;
 
 	let isInformant;
@@ -26,6 +25,10 @@
 					name="clue"
 					class="h-20 text-5xl"
 					placeholder="Enter Clue"
+					pattern="^[a-zA-Z0-9\-]+$"
+					maxlength="20"
+					oninvalid="this.setCustomValidity('Please enter one word.')"
+					oninput="this.setCustomValidity('')"
 					required
 				/>
 			</div>

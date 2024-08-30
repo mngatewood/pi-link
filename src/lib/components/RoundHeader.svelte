@@ -21,7 +21,6 @@
 	$: informantName = informantObject
 		? informantObject.firstname + ' ' + informantObject.lastname.charAt() + '.'
 		: '';
-	$: console.log("informant name", informantName)
 
 	let clue = '';
 	let showClueContainer = false;

@@ -155,12 +155,15 @@
 
 	form#remove-player {
 		width: unset;
-		padding-top: 6px;
+		padding: 0;
 	}
 
 	.remove-button {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0;
 		padding: 0;
-		margin-right: 0.25rem;
 		background-color: transparent;
 		box-shadow: none;
 	}

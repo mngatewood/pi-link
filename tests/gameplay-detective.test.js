@@ -41,7 +41,7 @@ test.describe('detective journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
-		await expect(page.getByText('Wait for the Informant to draw six cards.')).toBeVisible()
+		await expect(page.getByText('Wait for the Informant to draw six cards.')).toBeVisible();
 		await page.screenshot({
 			path: `./test-results/gameplay-detective-s1-help.${workerInfo.project.name}.png`
 		});
@@ -69,7 +69,7 @@ test.describe('detective journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
-		await expect(page.getByText('As a Detective, you have')).toBeVisible()
+		await expect(page.getByText('As a Detective, you have')).toBeVisible();
 		await page.screenshot({
 			path: `./test-results/gameplay-detective-s2-help.${workerInfo.project.name}.png`
 		});
@@ -93,7 +93,7 @@ test.describe('detective journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
-		await expect(page.getByText('The Informant states their')).toBeVisible()
+		await expect(page.getByText('The Informant states their')).toBeVisible();
 		await page.screenshot({
 			path: `./test-results/gameplay-detective-s3-help.${workerInfo.project.name}.png`
 		});
@@ -138,7 +138,7 @@ test.describe('detective journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
-		await expect(page.getByText('Select a player from the list to')).toBeVisible()
+		await expect(page.getByText('Select a player from the list to')).toBeVisible();
 		await page.screenshot({
 			path: `./test-results/gameplay-detective-s4-help.${workerInfo.project.name}.png`
 		});
@@ -165,7 +165,7 @@ test.describe('detective journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
-		await expect(page.getByText('Each detective who voted correctly')).toBeVisible()
+		await expect(page.getByText('Each detective who voted correctly')).toBeVisible();
 		await page.screenshot({
 			path: `./test-results/gameplay-detective-s5-help.${workerInfo.project.name}.png`
 		});
@@ -193,7 +193,7 @@ test.describe('detective journey', () => {
 
 		await page.getByRole('button', { name: '[+]   Help' }).click();
 		await page.waitForTimeout(1000);
-		await expect(page.getByText('Discard your cards.')).toBeVisible()
+		await expect(page.getByText('Discard your cards.')).toBeVisible();
 		await page.screenshot({
 			path: `./test-results/gameplay-detective-s6-help.${workerInfo.project.name}.png`
 		});

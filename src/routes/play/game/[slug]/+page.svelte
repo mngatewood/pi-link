@@ -4,7 +4,7 @@
 	import PocketBase from 'pocketbase';
 	import Lobby from '$lib/components/Lobby.svelte';
 	import Game from '$lib/components/Game.svelte';
-	import { userStore, gameStore } from '$lib/stores.js'
+	import { userStore, gameStore } from '$lib/stores.js';
 
 	const pb = new PocketBase(import.meta.env.VITE_DB_URL);
 
