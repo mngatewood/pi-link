@@ -10,13 +10,13 @@ test.describe('index page', () => {
 	});
 
 	test('index page has title and icons', async ({ page }) => {
-		await expect(page.getByText('PI Link')).toBeVisible();
+		await expect(page.getByText('PI Link', { exact: true })).toBeVisible();
 		await expect(page.getByAltText('account icon')).toBeVisible();
-		await expect(page.getByAltText('account icon')).toBeVisible();
+		await expect(page.getByAltText('home icon')).toBeVisible();
 	});
 
 	test('index page has expected h1 and register/login links', async ({ page }) => {
-		await expect(page.getByRole('heading', { name: 'Welcome' })).toBeVisible();
+		await expect(page.getByRole('heading', { name: 'Welcome!' })).toBeVisible();
 		await expect(page.getByRole('link', { name: 'Register' })).toHaveCount(2);
 		await expect(page.getByRole('link', { name: 'Login' })).toHaveCount(2);
 		await expect(page.getByTestId('login-inline')).toBeVisible();

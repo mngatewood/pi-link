@@ -167,6 +167,12 @@
 		margin: 1rem auto;
 	}
 
+	:global(.overview) {
+		margin: 2rem 1rem 0 1rem;
+		font-size: large;
+		text-align: justify;
+	}
+
 	:global(.title) {
 		font-family: 'Titillium Web', sans-serif;
 		font-size: 2rem;
