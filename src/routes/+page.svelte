@@ -21,7 +21,7 @@
 			page, then login at the
 			<a data-testid="login-inline" class="href-inline" href="/login">Login</a>
 			page. The app provides context-specific tips along the way to teach you the game. If you wish to
-			review the official rules for Detective Club, you can download them
+			review the official rules for <em>Detective Club</em>, you can download them
 			<a
 				class="href-inline"
 				href="https://cdn.1j1ju.com/medias/92/14/39-detective-club-rulebook.pdf">here</a
