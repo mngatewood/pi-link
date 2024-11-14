@@ -40,7 +40,7 @@
 	$: data = { game: game, user: data.user };
 
 	$: if (game.status == 'ended') {
-		let host = game.host == player.id;
+		let host = $game.host == $player.id;
 		goto(`/play?ended=true&host=${host}`);
 	}
 </script>
