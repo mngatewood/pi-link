@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { enhance } from '$app/forms';
 	import RoundHeader from './RoundHeader.svelte';
 	export let data;
@@ -9,6 +9,18 @@
 
 	$: isInformant = data.game.playerRoles[data.user.id] == 'Informant';
 	$: disableSubmit = clueWord?.length < 2;
+
+	const handleInvalid = (event: Event) => {
+		if (event.target instanceof HTMLInputElement) {
+			event.target.setCustomValidity('Please enter one word.');
+		}
+	}
+
+	const handleInput = (event: Event) => {
+		if (event.target instanceof HTMLInputElement) {
+			event.target.setCustomValidity('');
+		}
+	}
 </script>
 
 <RoundHeader {data} />
@@ -27,8 +39,8 @@
 					placeholder="Enter Clue"
 					pattern="^[a-zA-Z0-9\-]+$"
 					maxlength="20"
-					oninvalid="this.setCustomValidity('Please enter one word.')"
-					oninput="this.setCustomValidity('')"
+					on:invalid={handleInvalid}
+					on:input={handleInput}
 					required
 				/>
 			</div>

@@ -15,11 +15,11 @@
 
 	let isInformant, isConspirator, playerRole, informantName;
 
-	$: isInformant = game.playerRoles ? game.playerRoles[data.user.id] == 'Informant' : false;
-	$: isConspirator = game.playerRoles ? game.playerRoles[data.user.id] == 'Conspirator' : false;
-	$: playerRole = game.playerRoles ? game.playerRoles[player.id] : '';
-	$: informantName = informantObject
-		? informantObject.firstname + ' ' + informantObject.lastname.charAt() + '.'
+	$: isInformant = $game.playerRoles ? $game.playerRoles[$data.user.id] == 'Informant' : false;
+	$: isConspirator = $game.playerRoles ? $game.playerRoles[$data.user.id] == 'Conspirator' : false;
+	$: playerRole = $game.playerRoles ? $game.playerRoles[$player.id] : '';
+	$: informantName = $informantObject
+		? $informantObject.firstname + ' ' + $informantObject.lastname.charAt() + '.'
 		: '';
 
 	let clue = '';
